@@ -1,0 +1,39 @@
+/*Override main.css*/
+.wrapper{
+    padding: 2em 0 4em 0;
+}
+
+header.major{
+    margin: 0 0 2em 0;
+}
+
+form{
+    margin: 0;
+}
+
+/*End*/
+
+.label{
+    margin: 0 auto;
+}
+
+.message{
+    border: 1px solid;
+    margin-top: 1em; 
+    border-radius: .25rem;
+    width: 25em;
+}
+
+.success-message{
+    padding: .75rem 1.25rem;
+    color: white;
+    background-color: #28a745;
+    border-color: #1f7f35;
+}
+
+.error-message{
+    padding: .75rem 2rem;
+    color: white;
+    background-color: #dc3545;
+    border-color: #d42537;
+}
