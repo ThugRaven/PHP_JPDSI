@@ -1,4 +1,4 @@
-{extends file=$conf->root_path|cat:"/templates/main.tpl"}
+{extends file="main.tpl"}
 
 {block name=content}
 
@@ -28,9 +28,9 @@
                 </div>
             </form>
 
-            {if $messages->hasErrors()}
+            {if $msgs->hasErrors()}
                 <ol class="message error-message">
-                    {foreach  $messages->getErrors() as $err}
+                    {foreach  $msgs->getErrors() as $err}
                         {strip}
                             <li>{$err}</li>
                             {/strip}
