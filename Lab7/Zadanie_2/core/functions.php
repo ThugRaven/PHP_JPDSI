@@ -32,8 +32,7 @@ function getFromSession($param_name, $required = false, $required_message = null
 }
 
 function forwardTo($action_name) {
-    global $action;
-    $action = $action_name;
+    getRouter()->setAction($action_name);
     include getConf()->root_path . "/ctrl.php";
     exit;
 }
