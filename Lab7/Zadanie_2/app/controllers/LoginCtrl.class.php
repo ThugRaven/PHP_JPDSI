@@ -49,7 +49,7 @@ class LoginCtrl {
         return !getMessages()->hasErrors();
     }
 
-    public function doLogin() {
+    public function action_login() {
         $this->getParams();
 
         if ($this->validate()) {
@@ -59,7 +59,7 @@ class LoginCtrl {
         }
     }
 
-    public function doLogout() {
+    public function action_logout() {
         session_unset();
         session_destroy();
 

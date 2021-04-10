@@ -55,7 +55,7 @@ class CalcCredCtrl {
         return !getMessages()->hasErrors();
     }
 
-    public function process() {
+    public function action_calcCompute() {
         $this->getParams();
 
         if ($this->validate()) {
@@ -72,6 +72,11 @@ class CalcCredCtrl {
             }
         }
 
+        $this->generateView();
+    }
+
+    public function action_calcShow() {
+        getMessages()->addInfo('Witaj w kalkulatorze kredytowym!');
         $this->generateView();
     }
 
