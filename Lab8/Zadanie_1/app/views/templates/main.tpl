@@ -20,6 +20,7 @@
                 <nav id="nav">
                     <ul>
                         <li><a href="{$conf->app_url}/index.php">Strona główna</a></li>
+                        <li><a href="{$conf->action_url}calcList">Lista obliczeń</a></li>
                             {if !empty($user->role)}
                             <li>Zalogowano jako {$user->role}</li>
                             <li><a href="{$conf->action_url}logout" class="button primary">Wyloguj się</a></li>

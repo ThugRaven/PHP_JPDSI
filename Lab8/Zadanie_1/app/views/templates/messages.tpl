@@ -9,7 +9,7 @@
 {/if}
 
 {if $msgs->hasInfos()}
-    <ol class="message success">
+    <ol class="message info">
         {foreach  $msgs->getInfos() as $info}
             {strip}
                 <li>{$info}</li>

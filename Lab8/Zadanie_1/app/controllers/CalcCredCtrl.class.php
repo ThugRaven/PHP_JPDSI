@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\forms\CalcCredForm;
 use app\transfer\CalcCredResult;
+use PDOException;
 
 class CalcCredCtrl {
 
@@ -26,13 +27,13 @@ class CalcCredCtrl {
             return false;
         }
 
-        if ($this->form_calc->amount == "") {
+        if (empty(trim($this->form_calc->amount))) {
             getMessages()->addError('Nie podano kwoty');
         }
-        if ($this->form_calc->years == "") {
+        if (empty(trim($this->form_calc->years))) {
             getMessages()->addError('Nie podano lat');
         }
-        if ($this->form_calc->interest == "") {
+        if (empty(trim($this->form_calc->interest))) {
             getMessages()->addError('Nie podano oprocentowania');
         }
 
@@ -69,6 +70,22 @@ class CalcCredCtrl {
                 $monthly = $this->form_calc->amount / ($this->form_calc->years * 12);
                 $percent = $monthly * ($this->form_calc->interest / 100);
                 $this->result->result = $monthly + $percent;
+
+                try {
+                    getDB()->insert("calc_list", [
+                        "amount" => $this->form_calc->amount,
+                        "years" => $this->form_calc->years,
+                        "interest" => $this->form_calc->interest,
+                        "monthly_rate" => $this->result->result
+                    ]);
+
+                    getMessages()->addInfo('Pomyślnie zapisano rekord');
+                } catch (PDOException $ex) {
+                    getMessages()->addError('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');
+                    if (getConf()->debug) {
+                        getMessages()->addError($ex->getMessage());
+                    }
+                }
             }
         }
 
@@ -76,7 +93,7 @@ class CalcCredCtrl {
     }
 
     public function action_calcShow() {
-        getMessages()->addInfo('Witaj w kalkulatorze kredytowym!');
+//        getMessages()->addInfo('Witaj w kalkulatorze kredytowym!');
         $this->generateView();
     }
 

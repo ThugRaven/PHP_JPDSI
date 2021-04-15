@@ -17,6 +17,10 @@ form{
     padding: 2em 0;
 }
 
+ol li{
+    padding-left: 0;
+}
+
 /*End*/
 
 .label{
@@ -40,4 +44,18 @@ form{
 .message.error{
     background-color: #dc3545;
     border-color: #d42537;
+}
+
+.message.info{
+    background-color: #007bff;
+    border-color: #006fe6;
+    list-style-type: none;
+}
+
+tr .button{
+    visibility: hidden;
+}
+
+tr:hover .button{
+    visibility: visible;
 }

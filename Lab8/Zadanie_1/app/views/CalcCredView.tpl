@@ -21,20 +21,20 @@
                         <input id="id_interest" type="text" name="interest" value="{$form_calc->interest}" />
                         <br />
                         <ul class="actions">
-                            <li><input type="submit" value="Oblicz" class="primary"></li>
+                            <li><input type="submit" value="Oblicz" class="button primary"></li>
                             <!--<li><input type="reset" value="Reset"></li>-->
                         </ul>
                     </div>
                 </div>
             </form>
 
-            {include file='messages.tpl'}
-
             {if isset($result)}
                 <div class="message success">
                     Miesięczna rata: {round($result, 2)} zł
                 </div>
             {/if}
+
+            {include file='messages.tpl'}
 
         </div>
     </div>

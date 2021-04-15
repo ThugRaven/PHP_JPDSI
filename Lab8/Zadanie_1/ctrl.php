@@ -7,6 +7,8 @@ getRouter()->setLoginRoute('login');
 
 getRouter()->addRoute('calcShow', 'CalcCredCtrl', ['user', 'admin']);
 getRouter()->addRoute('calcCompute', 'CalcCredCtrl', ['user', 'admin']);
+getRouter()->addRoute('calcList', 'CalcCredListCtrl');
+getRouter()->addRoute('calcDelete', 'CalcCredListCtrl');
 getRouter()->addRoute('login', 'LoginCtrl');
 getRouter()->addRoute('logout', 'LoginCtrl', ['user', 'admin']);
 
